@@ -126,7 +126,7 @@ num_epochs = epochs
 start_time = time.time()
 
 # Early stopping parameters
-patience = int(num_epochs/2)
+patience = int(input('Entire desired patience parameter \n'))
 min_delta = 0.001
 best_val_loss = float('inf')
 counter = 0

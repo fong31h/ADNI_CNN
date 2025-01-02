@@ -1,5 +1,5 @@
 import time
-from os import path, mkdir, listdir, remove 
+from os import path, mkdir, listdir, remove
 import importlib
 import Import_classes
 importlib.reload(Import_classes)
@@ -97,9 +97,6 @@ resnet_50.conv1 = nn.Conv2d(1, original_conv1.out_channels, kernel_size=original
 with torch.no_grad():
     resnet_50.conv1.weight = nn.Parameter(original_conv1.weight.sum(dim=1, keepdim=True))
 
-# set device
-device = 'cpu'
-
 # set number of classes to 3
 num_ftrs = resnet_50.fc.in_features
 resnet_50.fc = nn.Linear(num_ftrs, 3)
@@ -142,7 +139,7 @@ num_epochs = epochs
 start_time = time.time()
 
 # Early stopping parameters
-patience = int(num_epochs/2)
+patience = int(input('Entire desired patience parameter \n'))
 min_delta = 0.001
 best_val_loss = float('inf')
 counter = 0
@@ -166,9 +163,9 @@ for epoch in range(num_epochs):
         
         running_loss += batch_loss.item()
         
-        if (i + 1) % 20 == 0:  # Print every 20 batches
+        if (i + 1) % 10 == 0:  # Print every 10 batches
             print(f'Epoch [{epoch+1}/{num_epochs}], Step [{i+1}/{len(train_dataloader)}], '
-                  f'Loss: {running_loss / 20:.4f}')
+                  f'Loss: {running_loss / 10:.4f}')
             running_loss = 0.0  # Reset running_loss after each print
     
     # Validation phase
@@ -220,4 +217,5 @@ print('Training complete')
 end_time = time.time()
 print(f'Counter value:{counter}')
 print(f'Total training time: {(end_time - start_time)/3600} hours')
+sys.stdout = sys.__stdout__
 f.close()
