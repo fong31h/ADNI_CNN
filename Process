@@ -13,11 +13,11 @@ Using training_loop.py:
 6. Run training_loop.py. This should take you through the whole process of training and save the best model and training log.
 7. Run testing_loop.py with the model saved from training_loop.py to see accuracy. Be sure to keep the same parameters as when 
 training. Use the test split of the data you just trained with.
-8. Done! Well, evaluate results now.
+8. Well done! Now evaluate results....
 
 Using training_loop_separate.py:
 
 6. Use the newly created 2D CSV file with split_dfs.py to save a train_df, validation_df, and test_df to your data directory.
 7. Run training_loop_separate.py with train_df, and validation_df. Best model and training log should be saved.
-8. Run testing_loop.py with test_df and see the accuracy. Be sure to keep the same parameters as training.
-9. Done! Well, evalute results now.
+8. Run testing_loop_separate.py with test_df and see the accuracy. Be sure to keep the same parameters as training.
+9. Well done! Now evalute results....
